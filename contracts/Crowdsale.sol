@@ -23,9 +23,10 @@ contract Crowdsale is Context, ReentrancyGuard {
     using SafeERC20 for IERC20;
 
     // The token being sold
-    IERC20 private _token;
+    IERC20 private _token; //This is similar to creating an object which inherits the interface functions as methods or properties
+    //See: https://www.geeksforgeeks.org/solidity-basics-of-interface/
 
-    // Address where funds are collected
+    // Address where funds are collected:
     address payable private _wallet;
 
     // How many token units a buyer gets per wei.
@@ -65,7 +66,7 @@ contract Crowdsale is Context, ReentrancyGuard {
         IERC20 token
     ) public {
         require(rate > 0, "Crowdsale: rate is 0");
-        require(wallet != address(0), "Crowdsale: wallet is the zero address");
+        require(wallet != address(0), "Crowdsale: wallet is the zero address"); //address 0 gives you an address value type with the zero address.
         require(
             address(token) != address(0),
             "Crowdsale: token is the zero address"
